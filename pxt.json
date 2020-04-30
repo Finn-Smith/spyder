@@ -2,7 +2,10 @@
     "name": "Spyder",
     "dependencies": {
         "device": "*",
-        "animation": "*"
+        "animation": "*",
+        "darts": "*",
+        "palette": "*",
+        "Color Fading": "github:jwunderl/pxt-color#v0.1.3"
     },
     "description": "",
     "files": [
