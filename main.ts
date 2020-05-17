@@ -595,6 +595,7 @@ d b b b d d d b b b d d d b b d
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile32, function (sprite, location) {
     info.changeLifeBy(-1)
     spid.setPosition(13, 96)
+    music.wawawawaa.play()
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile17, function (sprite, location) {
     tiles.setTilemap(tiles.createTilemap(
@@ -771,8 +772,9 @@ f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
     }
 })
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile33, function (sprite, location) {
-    music.baDing.play()
-    game.over(true, color.FadeToBlack)
+    music.baDing.loop()
+    game.over(true, effects.confetti)
+    music.playMelody("B A G B A B A G ", 180)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (spid.vy == 0) {
@@ -782,6 +784,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.ant, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     otherSprite.destroy()
+    music.baDing.play()
 })
 info.onLifeZero(function () {
     game.reset()
@@ -1039,4 +1042,8 @@ b f f b b f f b b b f f f f . .
     } else {
     	
     }
+})
+forever(function () {
+    music.playMelody("C C5 - B D C5 B D ", 180)
+    music.setVolume(99)
 })
